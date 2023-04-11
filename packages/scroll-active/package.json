@@ -5,9 +5,9 @@
   "main": "dist/scroll-active.js",
   "types": "dist/ScrollActive.d.ts",
   "scripts": {
-    "rm": "../../node_modules/.bin/rimraf dist",
-    "dev": "npm run rm && ../../node_modules/.bin/cross-env NODE_ENV=development ../../node_modules/.bin/rollup -cw",
-    "build": "npm run rm && ../../node_modules/.bin/cross-env NODE_ENV=production ../../node_modules/.bin/rollup -c"
+    "rm": "..\\..\\node_modules\\.bin\\rimraf dist",
+    "dev": "npm run rm && ..\\..\\node_modules\\.bin\\cross-env NODE_ENV=development ..\\..\\node_modules\\.bin\\rollup -cw",
+    "build": "npm run rm && ..\\..\\node_modules\\.bin\\cross-env NODE_ENV=production ..\\..\\node_modules\\.bin\\rollup -c"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
