@@ -10,7 +10,7 @@ A lightweight lib for making navigation elements active as you scroll.
 
 ## Related
 
-[v-scroll-active][v-scroll-active]: A version of vue component. Vue 版本。
+[v-scroll-active][v-scroll-active]: A version of vue component. Vue2 版本。
 
 ## Live Demo
 
@@ -44,14 +44,17 @@ A lightweight lib for making navigation elements active as you scroll.
 // es module, typescript
 import ScrollActive from 'scroll-active';
 
-new ScrollActive({
+new ScrollActive(
+  {
     activeClass: 'active', // 激活导航使用的 class
     offset: 0, // 触发 active 元素的偏移量
     hash: false, // 点击变更导航后，改变 hash
     update(id) {
-        // hook: 当 active id 改变当时候触发
-    }
-});
+      // hook: 当 active id 改变当时候触发
+    },
+  },
+  '#css-selector' // css选择器，用于指明滚动容器，默认为window
+);
 ```
 
 Add `data-scroll-active` to the navigation menu and assign an element id. When the page scrolls to the element, it will add `active` to the class of the navigation menu.
@@ -97,7 +100,7 @@ class ReactComponent extends React {
 }
 ```
 
-Here is a version for vue: [v-scroll-active][v-scroll-active]
+Here is a version for vue2: [v-scroll-active][v-scroll-active]
 
 ```js
 // vue:

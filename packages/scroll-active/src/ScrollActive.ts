@@ -10,18 +10,26 @@ export default class ScrollActive {
 
     private idList: string[] = []; // id 列表
 
+    private scrollContainer: HTMLElement | Window = window; // 滚动容器
+
     private navbarList: HTMLElement[] = []; // 所有菜单元素
 
     private targetList: HTMLElement[] = []; // 页面中要监听的所有元素
 
-    constructor(options: Partial<ActiveOptions> = {}) {
+    constructor(options: Partial<ActiveOptions> = {}, containerSelector?: string) {
         this.options = Object.assign({}, new ActiveOptions(), options);
-        this.initialize();
+        this.initialize(containerSelector);
     }
 
-    private initialize() {
-        // init listener
-        window.addEventListener('scroll', this.handleScroll);
+    private initialize(containerSelector) {
+        const element = document.querySelector(containerSelector);
+
+        if (element) {
+            this.scrollContainer = element;
+            element.addEventListener('scroll', this.handleScroll);
+        }
+
+        this.scrollContainer.addEventListener('scroll', this.handleScroll);
 
         const wrapper = this.options.wrapper;
 
@@ -51,7 +59,7 @@ export default class ScrollActive {
     };
 
     private handleScroll = () => {
-        const scrollTop = getScrollTop();
+        const scrollTop = getScrollTop(this.scrollContainer);
         let activeIndex = 0;
 
         for (let i = 0; i < this.targetList.length; i++) {

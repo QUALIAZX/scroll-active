@@ -6,7 +6,10 @@ import Task from 'tween-task';
  * @export
  * @returns {number}
  */
-export function getScrollTop(): number {
+export function getScrollTop(container?: HTMLElement | Window | null): number {
+    if (container instanceof HTMLElement) {
+        return container.scrollTop;
+    }
     return document.body.scrollTop || document.documentElement.scrollTop;
 }
 
