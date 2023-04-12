@@ -10,5 +10,20 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    emptyOutDir: false, // 避免dist被清空
+    lib: {
+      entry: './src/index.js',
+      name: 'vue3-scroll-active'
+    },
+    rollupOptions: {
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue'
+        }
+      }
+    }
   }
 })

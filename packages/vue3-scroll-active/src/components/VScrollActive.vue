@@ -4,6 +4,10 @@
   </div>
 </template>
 
+<script>
+  export default { name: 'v-scroll-active' }
+</script>
+
 <script setup>
 /* 修改自v-scroll-active */
 import { ref, onBeforeUpdate, onUpdated, onBeforeUnmount, onMounted, nextTick } from 'vue';
